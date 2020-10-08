@@ -23,10 +23,12 @@
         <tbody>
         @foreach($data as $da)
         <tr>
+            @if($start === 1 && $rows === 2)
             <th scope="row">{{ $da->id }}</th>
             <td>{{ $da->journal }}</td>
             <td>{{ $da->eissn }}</td>
             <td>{{ $da->publication_date }}</td>
+            @endif
         </tr>
         @endforeach
 
@@ -40,9 +42,9 @@
                     <span class="sr-only">Previous</span>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            @for($i = 1; $i<6; $i++)
+            <li class="page-item"><a class="page-link" href="#">{{ $i }}</a></li>
+            @endfor
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
